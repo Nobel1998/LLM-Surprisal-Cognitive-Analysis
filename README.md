@@ -1,20 +1,25 @@
 # LLM Sensitivity to World Knowledge Violations: A Surprisal Analysis
 
 ## Overview
-This project investigates the alignment between Large Language Model (GPT-2) probability distributions and human cognitive processing. Specifically, we analyze whether **Surprisal metrics** ($-\log_2 p$) in Transformer models correlate with the **N400 ERP (Event-Related Potential)** observed in human neuroscience when processing semantic violations.
+This project tests how GPT-2 responds to violations of physical common-sense knowledge. It compares **surprisal** ($-\log_2 p$) for plausible and implausible sentence completions, then discusses the result as a conceptual parallel to the human **N400 ERP (Event-Related Potential)** effect. The project does not use EEG or other human neural data.
 
 ## Methodology
 - **Model:** GPT-2 (via Hugging Face Transformers)
-- **Metric:** Token-level Surprisal calculated from output logits.
-- **Stimuli:** 20 "minimal pair" sentences contrasting plausible vs. implausible contexts (e.g., "Winter turns water into *ice*" vs. "*fire*").
-- **Analysis:** Statistical comparison of entropy and probability distributions between conditions.
+- **Metric:** Next-token surprisal calculated from output logits.
+- **Stimuli:** 10 minimal pairs (20 stimuli) that share a sentence frame and differ in the final word (e.g., "In the winter, water turns to *ice*" vs. "*fire*").
+- **Analysis:** Comparison of mean surprisal between conditions, shown in a bar plot.
 
 ## Key Findings
-- The model exhibits significantly higher surprisal for "world knowledge violations" (M ≈ 11.1) compared to plausible completions (M ≈ 4.1).
-- These results suggest that Transformer architectures implicitly encode functional maps of physical reality, mirroring human N400 neural signatures.
+- Mean surprisal was nearly three times higher for world-knowledge violations (M ≈ 11.1) than for plausible completions (M ≈ 4.1).
+- This pattern parallels the N400 effect, where semantically unexpected words elicit a larger brain response. It is an analogy, not a measured correlation with human data.
+
+## Limitations
+- The stimulus set is small, and no significance test was run.
+- Word frequency and co-occurrence may contribute to surprisal differences.
+- Some violations could be plausible in metaphorical or fictional contexts.
 
 ## Tech Stack
-- **Core:** Python 3.9, PyTorch
+- **Core:** Python, PyTorch
 - **NLP:** Hugging Face Transformers
 - **Data/Viz:** Pandas, NumPy, Seaborn, Matplotlib
 
