@@ -3,6 +3,8 @@
 ## Overview
 This project tests how GPT-2 responds to violations of physical common-sense knowledge. It compares **surprisal** ($-\log_2 p$) for plausible and implausible sentence completions, then discusses the result as a conceptual parallel to the human **N400 ERP (Event-Related Potential)** effect. The project does not use EEG or other human neural data.
 
+**Notebook:** [sensitivity_to_world_knowledge_violations.ipynb](sensitivity_to_world_knowledge_violations.ipynb)
+
 ## Methodology
 - **Model:** GPT-2 (via Hugging Face Transformers)
 - **Metric:** Next-token surprisal calculated from output logits.
